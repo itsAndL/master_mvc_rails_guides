@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_123134) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_27_175124) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -38,12 +38,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_123134) do
     t.index ["book_id", "author_id"], name: "index_join_books_to_their_author_on_book_id_and_author_id"
   end
 
-  create_table "posts", primary_key: "post_id", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "motto"
+    t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["motto"], name: "unique_motto", unique: true
+    t.index ["logo"], name: "unique_motto", unique: true
   end
 
   add_foreign_key "books", "authors"
