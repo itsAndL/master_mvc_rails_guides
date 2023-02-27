@@ -19,13 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_123134) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "authors_books", id: false, force: :cascade do |t|
-    t.integer "author_id", null: false
-    t.integer "book_id", null: false
-    t.index ["author_id", "book_id"], name: "index_authors_books_on_author_id_and_book_id"
-    t.index ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
-  end
-
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "pages"
@@ -36,6 +29,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_123134) do
     t.text "subtitle"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["publisher"], name: "index_books_on_publisher"
+  end
+
+  create_table "join_books_to_their_author", id: false, force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "book_id"
+    t.index ["author_id", "book_id"], name: "index_join_books_to_their_author_on_author_id_and_book_id"
+    t.index ["book_id", "author_id"], name: "index_join_books_to_their_author_on_book_id_and_author_id"
   end
 
   create_table "posts", primary_key: "post_id", force: :cascade do |t|
