@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_073516) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_080833) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -29,6 +29,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_073516) do
     t.string "subtitle"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["publisher"], name: "index_books_on_publisher"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "desc"
+    t.boolean "like"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "join_books_to_their_author", id: false, force: :cascade do |t|
