@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_195041) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_073516) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -39,10 +39,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_195041) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
+    t.string "your_wize"
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "views", default: 45, null: false
     t.index ["logo"], name: "unique_motto", unique: true
   end
 
