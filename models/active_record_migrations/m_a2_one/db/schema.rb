@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_080833) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_085410) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -52,6 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_080833) do
     t.datetime "updated_at", null: false
     t.integer "views", default: 45, null: false
     t.index ["logo"], name: "unique_motto", unique: true
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name", default: "Will"
+    t.integer "age", default: 30
+    t.decimal "price", null: false
+    t.string "sentence", limit: 8, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["price"], name: "resources_price_idx", unique: true
   end
 
   add_foreign_key "books", "authors"
