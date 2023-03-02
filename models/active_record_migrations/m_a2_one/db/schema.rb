@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_103445) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_112018) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -36,6 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_103445) do
     t.boolean "like"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "resource_id"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["resource_id"], name: "index_comments_on_resource_id"
   end
 
   create_table "join_books_to_their_author", id: false, force: :cascade do |t|
@@ -61,10 +65,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_103445) do
     t.string "sentence", limit: 8, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "comment_id"
-    t.index ["comment_id"], name: "index_resources_on_comment_id"
     t.index ["price"], name: "resources_price_idx", unique: true
   end
 
   add_foreign_key "books", "authors"
+  add_foreign_key "comments", "authors"
 end
