@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_115511) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_122403) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_authors_on_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -29,6 +30,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_115511) do
     t.string "subtitle"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["publisher"], name: "index_books_on_publisher"
+  end
+
+  create_table "cars", primary_key: "car_id", force: :cascade do |t|
+    t.string "model"
+    t.string "comapany"
+    t.integer "book_id"
+    t.date "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "\"book_ref\"", name: "cars_book_ref_idx"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -69,5 +80,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_115511) do
   end
 
   add_foreign_key "books", "authors"
+  add_foreign_key "cars", "books"
   add_foreign_key "comments", "authors"
 end
