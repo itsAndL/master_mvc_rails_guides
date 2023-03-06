@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_100115) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_104018) do
   create_table "addresses", force: :cascade do |t|
     t.string "street", default: "123 west streat", null: false
     t.string "city"
@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_100115) do
   end
 
   create_table "cars", primary_key: "car_id", force: :cascade do |t|
-    t.json "model"
+    t.string "model"
     t.string "comapany"
     t.integer "book_id"
     t.date "year"
