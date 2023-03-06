@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_134048) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_03_095251) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_134048) do
     t.datetime "updated_at", null: false
     t.integer "views", default: 45, null: false
     t.index ["logo"], name: "unique_motto", unique: true
+    t.index ["your_wize"], name: "index_posts_on_your_wize", unique: true
   end
 
   create_table "resources", force: :cascade do |t|
