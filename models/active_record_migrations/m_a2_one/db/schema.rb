@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_134836) do
   end
 
   create_table "devices", force: :cascade do |t|
-    t.string "type"
+    t.string "device_type"
     t.string "model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
