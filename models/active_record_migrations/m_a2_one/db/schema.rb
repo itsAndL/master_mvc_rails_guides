@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_110550) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_113615) do
   create_table "addresses", force: :cascade do |t|
     t.string "street", default: "123 west streat", null: false
     t.string "city"
@@ -38,15 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_110550) do
     t.string "subtitle"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["publisher"], name: "index_books_on_publisher"
-  end
-
-  create_table "cars", primary_key: "car_id", force: :cascade do |t|
-    t.string "model"
-    t.string "comapany"
-    t.integer "book_id"
-    t.date "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -95,6 +86,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_110550) do
   end
 
   add_foreign_key "books", "authors"
-  add_foreign_key "cars", "books"
   add_foreign_key "comments", "authors"
 end
