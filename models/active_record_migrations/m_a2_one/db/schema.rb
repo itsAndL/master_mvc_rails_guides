@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_104018) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_110550) do
   create_table "addresses", force: :cascade do |t|
     t.string "street", default: "123 west streat", null: false
     t.string "city"
@@ -65,6 +65,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_104018) do
     t.integer "book_id"
     t.index ["author_id", "book_id"], name: "index_join_books_to_their_author_on_author_id_and_book_id"
     t.index ["book_id", "author_id"], name: "index_join_books_to_their_author_on_book_id_and_author_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
