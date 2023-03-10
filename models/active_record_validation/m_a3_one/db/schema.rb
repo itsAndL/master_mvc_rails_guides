@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_124237) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "adult"
   end
 
   add_foreign_key "homes", "people"
