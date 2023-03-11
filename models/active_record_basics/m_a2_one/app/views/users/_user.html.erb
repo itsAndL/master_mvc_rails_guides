@@ -9,4 +9,23 @@
     <%= user.password %>
   </p>
 
+  <p>
+    <strong>Username:</strong>
+    <%= user.username %>
+  </p>
+
+  <p>
+    <strong>Learning Goal:</strong>
+    <%= user.learning_goal %>
+  </p>
+
+  <p>
+    <strong>Avatar:</strong>
+    
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar, style: "width: 300px;" %>
+    <% end %>
+    
+  </p>
+  <P>==============================================================================</P>
 </div>
