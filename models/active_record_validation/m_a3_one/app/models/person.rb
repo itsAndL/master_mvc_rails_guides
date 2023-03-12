@@ -11,5 +11,5 @@ class Person < ApplicationRecord
 
   validates :age, comparison: { greater_than_or_equal_to: 18 , less_than: 40}
   # validates :first_name, comparison: { equal_to: proc { "James" } }
-  validates :first_name, comparison: { equal_to: "James" }
+  validates :first_name, comparison: { equal_to: "James", message: "%{value}, need to be eql to james" }
 end
