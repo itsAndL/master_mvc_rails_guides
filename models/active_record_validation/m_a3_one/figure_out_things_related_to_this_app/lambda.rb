@@ -40,3 +40,4 @@ end
 body = lambda { |size| puts "I like the number #{size}" }
 
 method "Tim Corey", &body
+method "Tim Coret", &lambda { |size| puts "I like the number #{size}" }
