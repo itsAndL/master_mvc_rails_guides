@@ -65,6 +65,6 @@ class HomesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def home_params
-      params.require(:home).permit(:home_type, :pool, :day_construction, :person_id)
+      params.require(:home).permit(:home_type, :pool, :day_construction)
     end
 end

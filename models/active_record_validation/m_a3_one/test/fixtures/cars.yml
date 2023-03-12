@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  model: MyString
+  year: 2023-03-12
+
+two:
+  company: MyString
+  model: MyString
+  year: 2023-03-12

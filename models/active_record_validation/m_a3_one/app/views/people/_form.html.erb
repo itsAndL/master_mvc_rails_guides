@@ -27,8 +27,18 @@
   </div>
 
   <div>
-    <%= form.check_box :adult %>
+    <%= form.check_box :adult, style: "margin-right: 8px;" %>
     <%= form.label :adult, "Agree that you're adult" %>
+  </div><br>
+
+  <div>
+    <%= form.label :asset_type, style: "display: block" %>
+    <%= form.text_field :asset_type %>
+  </div>
+
+  <div>
+    <%= form.label :asset_id, style: "display: block" %>
+    <%= form.number_field :asset_id %>
   </div>
 
   <div>
